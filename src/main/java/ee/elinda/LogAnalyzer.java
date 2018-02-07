@@ -18,7 +18,7 @@ import static java.util.Comparator.reverseOrder;
 
 class LogAnalyzer {
 	private String fileName;
-	private int until;
+	private long until;
 	private String[] arguments;
 	private List<Request> requests;
 	private static long startTime;
@@ -74,7 +74,7 @@ class LogAnalyzer {
 	private void initializeVariables() {
 		fileName = arguments[0];
 		try {
-			until = Integer.parseInt(arguments[1]);
+			until = Long.parseLong(arguments[1]);
 		} catch (Exception e) {
 			out.println("Second argument should be a number: " + e.getMessage());
 		}
