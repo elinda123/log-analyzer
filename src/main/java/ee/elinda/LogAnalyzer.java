@@ -53,12 +53,13 @@ class LogAnalyzer {
 		printProgramDuration();
 	}
 
-
 	private void drawHistogram() {
-		Map<LocalDateTime, Integer> numberOfRequests = countRequestsByMinutes(requests);
-		Histogram histogram = new Histogram();
-		out.println("\nHistogram:");
-		histogram.draw(numberOfRequests);
+		if (!requests.isEmpty()) {
+			Map<LocalDateTime, Integer> numberOfRequests = countRequestsByMinutes(requests);
+			Histogram histogram = new Histogram();
+			out.println("\nHistogram:");
+			histogram.draw(numberOfRequests);
+		}
 	}
 
 	private void readDataFromFile() {
@@ -118,8 +119,7 @@ class LogAnalyzer {
 			String[] split1 = line.split("] ")[1].split(" ");
 			result.setUri(split1[0]);
 			result.setDuration(parseLong(split1[2]));
-		}
-		else if (isResourceRequest) {
+		} else if (isResourceRequest) {
 			line = line.replace("  ", " ");
 			String[] split1 = line.split("] ")[1].split(" ");
 			result.setRequestedResourceName(split1[0]);
