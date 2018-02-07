@@ -102,19 +102,24 @@ class LogAnalyzer {
 	public Request convert(String line) {
 		Request result = new Request();
 		result.setOriginalRequestLogMessage(line);
+
 		String[] split = line.split(" ");
 		String dateTime = split[0] + " " + split[1];
 		DateTimeFormatter formatter = ofPattern("yyyy-MM-dd HH:mm:ss,SSS");
 		result.setDateTime(parse(dateTime, formatter));
+
 		result.setThreadId(split[2]);
+
 		result.setUserContext(line.substring(line.indexOf('['), line.indexOf(']') + 1));
+
 		boolean isUriRequest = split.length == 7;
 		boolean isResourceRequest = split.length >= 8;
 		if (isUriRequest) {
 			String[] split1 = line.split("] ")[1].split(" ");
 			result.setUri(split1[0]);
 			result.setDuration(parseLong(split1[2]));
-		} else if (isResourceRequest) {
+		}
+		else if (isResourceRequest) {
 			line = line.replace("  ", " ");
 			String[] split1 = line.split("] ")[1].split(" ");
 			result.setRequestedResourceName(split1[0]);

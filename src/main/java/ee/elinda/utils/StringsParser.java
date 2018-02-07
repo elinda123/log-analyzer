@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+import static java.lang.System.out;
 import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toList;
 
@@ -18,7 +19,7 @@ public class StringsParser {
 				.filter(s -> !s.isEmpty())
 				.collect(toList());
 		} catch (IOException e) {
-			System.out.println("Read file error: " + e.getMessage());
+			out.println("Read file error: " + e.getMessage());
 			return emptyList();
 		}
 	}

@@ -100,7 +100,7 @@ public class LogAnalyzerTest {
 	}
 
 	@Test
-	public void testLocalDateTime() {
+	public void localDateTimeShouldEliminateSecondsAndMilliSeconds() {
 		Request request = new Request();
 		LocalDateTime dateTime = LocalDateTime.of(2018, 2, 6, 15, 44, 33, 58300000);
 		request.setDateTime(dateTime);
