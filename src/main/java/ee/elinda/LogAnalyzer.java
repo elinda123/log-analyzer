@@ -35,7 +35,7 @@ class LogAnalyzer {
 		this.arguments = arguments;
 		if (arguments.length == 1 && arguments[0].contains("-h")) {
 			out.println("Please insert log filename and number of resources you want to see.\n" +
-				"For example 'timing.log 10' \uD83D\uDE03");
+				"For example 'timing.log 10'.");
 			printProgramDuration();
 			return;
 		}
@@ -124,7 +124,7 @@ class LogAnalyzer {
 		return result;
 	}
 
-	protected LocalDateTime localDateTime(Request request) {
+	LocalDateTime localDateTime(Request request) {
 		LocalDateTime temp = request.getDateTime();
 		return LocalDateTime.of(temp.getYear(), temp.getMonth(), temp.getDayOfMonth(), temp.getHour(), temp.getMinute(), 0);
 	}

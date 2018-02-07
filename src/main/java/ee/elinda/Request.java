@@ -2,7 +2,6 @@ package ee.elinda;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.time.LocalDateTime;
 

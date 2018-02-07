@@ -1,17 +1,10 @@
 package ee.elinda;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
-import static java.util.Arrays.asList;
-import static java.util.Collections.EMPTY_LIST;
-import static java.util.Collections.singletonList;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 public class LogAnalyzerTest {
 
